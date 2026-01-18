@@ -42,16 +42,22 @@ WEB DATA:
 
 YOUR TASK:
 1. Compare the claim against web results
-2. If web data contradicts or differs from claim → INACCURATE or FALSE
-3. Treat the claim as about the CURRENT situation unless the date is explicitly historical.
-4. If current web data is different from the claim's numbers or dates, mark it INACCURATE even if it might have been true in the past.
-5. If no web data available → FALSE (cannot verify).
+2. Extract the ACTUAL CURRENT VALUE from the web data (numbers, dates, facts)
+3. If web data contradicts the claim → mark INACCURATE and provide the correct value from search results
+4. If web data confirms the claim → mark VERIFIED
+5. If absolutely no relevant data found → mark FALSE
 
-RESPOND WITH EXACTLY THIS FORMAT (no extra text):
+CRITICAL: For CORRECT_VALUE field:
+- NEVER write "N/A" unless there is truly ZERO relevant information in the web data
+- Extract actual numbers, dates, or facts from the search results
+- If the claim is qualitative (like "interest has waned"), provide a summary of what the web actually says
+- Use the SUMMARY field from search results as your primary source
+
+RESPOND WITH EXACTLY THIS FORMAT:
 STATUS: VERIFIED|INACCURATE|FALSE
-CORRECT_VALUE: [actual value from web or N/A]
+CORRECT_VALUE: [extract actual value/fact from web data, NOT "N/A"]
 SOURCE_URL: [best URL or N/A]
-REASONING: [1-2 sentences why]
+REASONING: [1-2 sentences]
 CONFIDENCE: [0.0 to 1.0]"""
 
         try:
