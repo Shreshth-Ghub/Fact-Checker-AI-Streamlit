@@ -1,0 +1,9 @@
+[tool.streamlit.client]
+showErrorDetails = true
+
+[logger]
+level = "debug"
+
+[client]
+showErrorDetails = true
+logger.level = "debug"
