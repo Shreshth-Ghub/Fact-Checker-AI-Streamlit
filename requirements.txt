@@ -4,5 +4,4 @@ tavily-python==0.7.19
 python-dotenv==1.0.0
 pydantic==2.6.0
 PyPDF2==4.0.1
-pandas==2.2.0
 requests==2.31.0
