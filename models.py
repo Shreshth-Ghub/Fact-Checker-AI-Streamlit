@@ -1,7 +1,5 @@
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional
-
 
 @dataclass
 class Claim:
@@ -10,7 +8,6 @@ class Claim:
     claim_type: str
     extraction_confidence: float
     page_number: int
-
 
 @dataclass
 class VerificationResult:
@@ -22,8 +19,3 @@ class VerificationResult:
     reasoning: str
     confidence_score: float
     verified_at: datetime
-
-    def to_dict(self):
-        d = asdict(self)
-        d['verified_at'] = d['verified_at'].isoformat()
-        return d
