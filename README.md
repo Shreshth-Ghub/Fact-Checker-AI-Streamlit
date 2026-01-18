@@ -44,7 +44,8 @@ Fact Checker AI is a production-ready web application that automatically extract
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/fact-checker-ai-streamlit.git
+[git clone https://github.com/yourusername/fact-checker-ai-streamlit.git
+](https://github.com/Shreshth-Ghub/Fact-Checker-AI-Streamlit/tree/main)
 cd fact-checker-ai-streamlit
 ```
 
