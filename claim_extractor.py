@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from groq import Groq
 import json
 import re
+from models import Claim
 
 load_dotenv()
 
@@ -11,7 +12,7 @@ class ClaimExtractor:
     def __init__(self, api_key: str = None):
         self.client = Groq(api_key=api_key or os.getenv("GROQ_API_KEY"))
 
-    def extract_claims(self, text: str, page_num: int = 1) -> List[dict]:
+    def extract_claims(self, text: str, page_num: int = 1) -> List[Claim]:
         prompt = f"""Extract ONLY specific, verifiable claims from this text that contain:
 - Numbers, statistics, or percentages
 - Dates or specific time periods
@@ -46,12 +47,14 @@ Text: {text[:3000]}"""
 
         claims = []
         for idx, claim in enumerate(claims_data, 1):
-            claims.append({
-                "id": idx,
-                "text": claim.get("claim_text", ""),
-                "claim_type": claim.get("claim_type", "UNKNOWN"),
-                "extraction_confidence": float(claim.get("confidence", 0.7)),
-                "page_number": page_num
-            })
+            claims.append(
+                Claim(
+                    id=idx,
+                    text=claim.get("claim_text", ""),
+                    claim_type=claim.get("claim_type", "UNKNOWN"),
+                    extraction_confidence=float(claim.get("confidence", 0.7)),
+                    page_number=page_num
+                )
+            )
 
         return claims
