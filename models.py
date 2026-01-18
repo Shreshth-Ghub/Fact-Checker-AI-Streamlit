@@ -1,3 +1,4 @@
+# models.py - Using simple Python classes, no pydantic
 from dataclasses import dataclass
 from datetime import datetime
 
